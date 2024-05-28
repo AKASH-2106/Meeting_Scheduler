@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "443ea08a-1c66-41d4-ae16-1662167fa0f9",
+		"name": "Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14705458",
+		"_collection_link": "https://www.postman.com/akashprasad/workspace/postman-api-fundamentals-student-expert/collection/14705458-443ea08a-1c66-41d4-ae16-1662167fa0f9?action=share&source=collection_link&creator=14705458"
+	},
+	"item": [
+		{
+			"name": "[Auth] New user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"hrushi\",\r\n\"email\": \"hello@gmail.com\",\r\n\"password\": \"pass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth-service/api/v1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth-service",
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Auth] GEN JWT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"email\": \"f@gmail.com\",\r\n\"password\": \"pass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth-service/api/v1/auth/generate_token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth-service",
+						"api",
+						"v1",
+						"auth",
+						"generate_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[User] All users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth-service/api/v1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth-service",
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Event] Create Event",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Checking the invite part lets see \",\r\n    \"description\": \"Let us see if the invite will be sent or not\",\r\n    \"meetid\": \"26\",\r\n    \"meet_start_time\": \"15:30\",\r\n    \"meet_end_time\": \"16:00\",\r\n    \"duration\": 25,\r\n    \"participants_email\": [\r\n        \"attadaramprasad2001@gmail.com\",\r\n        \"akashprasad.201cs205@nitk.edu.in\",\r\n        \"hrushikeshj.201cs220@nitk.edu.in\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/event-service/api/event",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"event-service",
+						"api",
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Event] All events",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "[Event] Free slot",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "jwt",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ0aW1lc3luYyIsImVtYWlsIjoiZkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzExNTIxODY4LCJleHAiOjE3MTE1MjU0NjgsImp0aSI6ImJiNDI2MDdjLWYzMTYtNDAyOC05OTZkLWIyZTMxYTM2MjczNCIsIm5iZiI6MTcxMTUyMTg2OX0.szokdaGfuLMTnO9USme45TNJsbtetJCeKghAhDllptE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"meetid\": \"20\",\r\n    \"free_start_time\": \"14:30\",\r\n    \"free_end_time\": \"16:00\",\r\n    \"duration\": 25\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/event-service/api/freetime",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"event-service",
+						"api",
+						"freetime"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Event] List free time",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/event-service/api/freetime/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"event-service",
+						"api",
+						"freetime",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[Schd] Schedule",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
